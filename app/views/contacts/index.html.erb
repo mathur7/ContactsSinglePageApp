@@ -1,2 +1,10 @@
-You got an error, son!<br/>
-Make sure you are requesting the correct format for you data
+<!-- You got an error, son!<br/>
+Make sure you are requesting the correct format for you data -->
+
+
+<% @contacts.each do |contact| %>
+  <%= contact.name %>
+  <%= contact.email %>
+  <%= contact.number %>
+  <%= image_tag contact.imgUrl %>
+<% end %>

@@ -71,4 +71,15 @@ $(document).ready(function(){
     addContact(newContact);
  
   });
+
+  
+  $.get('/contacts.json').done(function(data) {
+    contacts = data
+    $.each(contacts, function(index, item){
+      addContact(item);
+    });
+  });
+
 });
+
+
