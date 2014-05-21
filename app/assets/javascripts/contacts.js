@@ -3,7 +3,20 @@ $(document).ready(function(){
  
  
   var contacts = [];
-  var count = 0;
+  var count = 500;
+
+  for (var char_code = 65; char_code < 91; char_code++) {
+         var charStr = String.fromCharCode(char_code);
+         var charSpan = "<span id='" + charStr + "' class='letter'> " + charStr + " </span>";
+         $("#letters").append(charSpan);
+     };
+ 
+     $("#letters").on("click", ".letter", function() {
+         var id = this.id;
+         console.log(id)
+         $(".contact").hide();
+         $("." + id).show();
+     });
  
  
   
@@ -16,7 +29,7 @@ $(document).ready(function(){
  
  
   var addContact = function(newContact){
-    var contactString = ["<div id='", newContact.id, "' class='contact'>",
+    var contactString = ["<div id='", newContact.id, "' class='contact " + newContact.name[0].toUpperCase() + "'>",
                                "<div>",
                               "<img src='", newContact.imgUrl, "' class='contact-img'>",
                             "</div>",
